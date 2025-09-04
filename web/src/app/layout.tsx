@@ -24,13 +24,20 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <ReduxProvider>{children}</ReduxProvider>
-      </body>
-    </html>
-  );
+    return (
+      <html lang="en">
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`} style={{margin:0, padding:0, boxSizing:'border-box'}}>
+          <header className="p-4 bg-slate-100 text-center">
+            <h1>Signup Wizard App</h1>
+          </header>
+          <main className="flex-1 w-full mx-auto px-4 md:px-8 lg:px-16">
+            <ReduxProvider>{children}</ReduxProvider>
+          </main>
+          <footer className="fixed left-0 bottom-0 w-full p-4 bg-slate-100 text-center">
+            <small>&copy; 2025 Signup Wizard.</small>
+          </footer>
+        </body>
+      </html>
+    );
 }
